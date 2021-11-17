@@ -6,6 +6,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetWebpackPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
 const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer');
+const StylelintPlugin = require('stylelint-webpack-plugin');
 
 const IS_DEVELOPMENT = process.env.NODE_ENV === 'development';
 
@@ -89,13 +90,14 @@ const plugins = () => {
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin([
         {
-            from: './css/images',
-            to: './css/images',
+            from: './assets/images',
+            to: './assets/images',
         },
     ]),
     new MiniCssExtractPlugin({
       filename: filename('css'),
     }),
+    new StylelintPlugin(),
   ];
 
   if (!IS_DEVELOPMENT) {

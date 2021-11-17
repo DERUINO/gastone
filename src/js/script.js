@@ -1,3 +1,5 @@
+import * as $ from 'jquery';
+
 $(document).ready(function () {
     getIndex();
     closeModal();
@@ -11,7 +13,7 @@ function getIndex() {
 		$('.modal-table-content-title').html(title);
 		$('.modal-table-content-text').html(content);
         $('.modal-table').fadeIn();
-    })
+    });
 }
 
 function closeModal() {
